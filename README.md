@@ -10,7 +10,7 @@ npx create-next-app@latest
 npm i @chakra-ui/react @chakra-ui/next-js @emotion/react @emotion/styled framer-motion
 ```
 
-```ts
+```tsx
 // app/providers.tsx
 "use client";
 
@@ -22,6 +22,25 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <CacheProvider>
       <ChakraProvider>{children}</ChakraProvider>
     </CacheProvider>
+  );
+}
+```
+
+```tsx
+// app/layout.tsx
+import { Providers } from "./providers";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }
 ```
