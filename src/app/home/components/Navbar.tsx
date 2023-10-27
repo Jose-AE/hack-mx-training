@@ -23,6 +23,8 @@ import {
 
 import { BiCubeAlt, BiSearch } from "react-icons/bi";
 
+import { signIn } from "next-auth/react";
+
 function Searchbar() {
   return (
     <>
@@ -73,10 +75,9 @@ export default function Navbar() {
               <Avatar size={"sm"} src={""} />
             </MenuButton>
             <MenuList>
-              <MenuItem>Link 1</MenuItem>
-              <MenuItem>Link 2</MenuItem>
+              <MenuItem onClick={() => signIn("google")}>Login</MenuItem>
               <MenuDivider />
-              <MenuItem>Link 3</MenuItem>
+              <MenuItem>Logout</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
